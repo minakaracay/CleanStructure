@@ -1,12 +1,12 @@
-﻿using System;
+﻿using MyApp.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace MyApp.Domain.Entities
 {
-    public class AppUser
+    public class User:BaseEntity
     {
-        public Guid Id { get; set; }
 
         public string FirstName { get; set; } = default!;
 
@@ -16,8 +16,7 @@ namespace MyApp.Domain.Entities
 
         public string PasswordHash { get; set; } = default!;
 
-        public string Role { get; set; } = "User";
+        public ICollection<UserRole> UserRoles { get; set; } = new List<UserRole>();
 
-        public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
     }
 }
